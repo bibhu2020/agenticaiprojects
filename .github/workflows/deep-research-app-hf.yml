@@ -23,6 +23,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Copy uv.lock and pyproject.toml to project folder
+      run: |
+        if [ -f "uv.lock" ]; then
+          cp uv.lock "${{ env.PROJECT_PATH }}/"
+          echo "Copied uv.lock to ${{ env.PROJECT_PATH }}"
+        fi
+        if [ -f "pyproject.toml" ]; then
+          cp pyproject.toml "${{ env.PROJECT_PATH }}/"
+          echo "Copied pyproject.toml to ${{ env.PROJECT_PATH }}"
+        fi
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
