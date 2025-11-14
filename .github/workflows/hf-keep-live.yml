@@ -18,9 +18,11 @@ jobs:
       run: |
         # Define URLs to curl
         URLS=(
-          "https://huggingface.co/spaces/mishrabp/chatbot-app"
-          "https://huggingface.co/spaces/mishrabp/deep-research"
-          "https://huggingface.co/spaces/mishrabp/trip-advisor-app"
+          "https://mishrabp-chatbot-app.hf.space"
+          "https://mishrabp-deep-research.hf.space"
+          "https://mishrabp-trip-advisor-api.hf.space/"
+          "https://mishrabp-trip-advisor-app.hf.space/"
+          "https://mishrabp-northwind.hf.space"
         )
 
         # Loop through URLs and send HEAD requests

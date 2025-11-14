@@ -23,10 +23,10 @@ agenticaiproject/
 ## Hugging Face URLs
 
 - accessibility: In Progress
-- chatbot: https://huggingface.co/spaces/mishrabp/chatbot-app
-- deep-research: https://huggingface.co/spaces/mishrabp/deep-research
+- chatbot: https://mishrabp-chatbot-app.hf.space
+- deep-research: https://mishrabp-deep-research.hf.space
 - stock-advisor: TBD
-- trip-planner: https://huggingface.co/spaces/mishrabp/trip-advisor-app
+- trip-planner: https://mishrabp-trip-advisor-app.hf.space/
 
 
 ## How to setup locally
