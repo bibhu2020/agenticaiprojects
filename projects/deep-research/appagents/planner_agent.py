@@ -31,12 +31,14 @@ groq_api_key = os.getenv('GROQ_API_KEY')
 groq_client = AsyncOpenAI(base_url=GROQ_BASE_URL, api_key=groq_api_key)
 groq_model = OpenAIChatCompletionsModel(model="groq/compound", openai_client=groq_client)
 
+openai_model = "gpt-4.1-mini"
+
 # Note: Many models do not like tool call and json output_schema used together.
 
 planner_agent = Agent(
     name="PlannerAgent",
     instructions=INSTRUCTIONS,
-    model=gemini_model,
+    model=openai_model,
     tools=[TimeTools.current_datetime],
     output_type=WebSearchPlan,
     input_guardrails=[guardrail_against_unparliamentary],
