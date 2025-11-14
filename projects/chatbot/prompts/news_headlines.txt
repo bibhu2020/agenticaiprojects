@@ -1,0 +1,5 @@
+Tell me the top 3 world headlines. Present me the headlines in the following way:
+- Show the title in Bold
+- Summerize the headline in 3 lines.
+- show me the headline publish date and time.
+- give me a link to the exct source url.

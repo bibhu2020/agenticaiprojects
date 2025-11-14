@@ -1,0 +1,4 @@
+Recommend 3 option spreades which has more than 80% likelihood of profiting me. 
+You must do a **thorough analysis** of the stocks 3 months trend and study the market sentiment to conclude into the answer.
+Explain each spread legs with the strike price, exact expiry date and premium entry.
+Provide a rational of your recommendation and likelyhood of winning it in %.
