@@ -1,7 +1,7 @@
 name: Deploy Chatbot API to Hugging Face
 
 env:
-  PROJECT_PATH: projects/chatbot
+  PROJECT_PATH: chatbot
   HF_TOKEN: ${{ secrets.HF_TOKEN }}
   HF_USERNAME: ${{ secrets.HF_USERNAME }}
   HF_SPACE_NAME: chatbot-app
@@ -12,7 +12,7 @@ on:
     branches:
       - main
     paths:
-      - 'projects/chatbot/**'
+      - 'chatbot/**'
   workflow_dispatch:
 
 jobs:
@@ -22,6 +22,17 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+
+    - name: Copy uv.lock and pyproject.toml to project folder
+      run: |
+        if [ -f "uv.lock" ]; then
+          cp uv.lock "${{ env.PROJECT_PATH }}/"
+          echo "Copied uv.lock to ${{ env.PROJECT_PATH }}"
+        fi
+        if [ -f "pyproject.toml" ]; then
+          cp pyproject.toml "${{ env.PROJECT_PATH }}/"
+          echo "Copied pyproject.toml to ${{ env.PROJECT_PATH }}"
+        fi
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -97,4 +108,3 @@ jobs:
 
     - name: Upload to Hugging Face Hub
       run: python upload_to_hf.py
-

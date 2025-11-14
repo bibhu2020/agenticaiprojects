@@ -12,14 +12,12 @@ agenticaiproject/
 │
 ├── github/
 │   ├── workflows/ --> it has the ci/cd pipelines that deploy the application into Hugging Face.
-│
-├── projects/
-│   ├── accessibility/
-│   ├── chatbot/
-│   ├── deep-research/
-│   ├── mcp-servers/  --> it has a list of mcp servers that are shared by the projects
-│   ├── stock-advisor/
-│   ├── trip-planner/
+├── accessibility/
+├── chatbot/
+├── deep-research/
+├── mcp-servers/  --> it has a list of mcp servers that are shared by the projects
+├── stock-advisor/
+├── trip-planner/
 
 ```
 ## Hugging Face URLs
