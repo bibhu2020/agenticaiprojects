@@ -1,9 +1,9 @@
 name: Keep My HF Sites Live
 
-# Run every 5 minutes
+# Run every 30 minutes
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch: # optional manual trigger
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Curl URLs
+    - name: Curl URLs (HEAD requests)
       run: |
         # Define URLs to curl
         URLS=(
@@ -23,10 +23,10 @@ jobs:
           "https://huggingface.co/spaces/mishrabp/trip-advisor-app"
         )
 
-        # Loop through URLs and print output
+        # Loop through URLs and send HEAD requests
         for url in "${URLS[@]}"; do
-          echo "Fetching $url ..."
-          response=$(curl -s -w "\nHTTP_STATUS:%{http_code}" "$url")
+          echo "HEAD request to $url ..."
+          response=$(curl -s -I -w "\nHTTP_STATUS:%{http_code}" "$url")
           echo "$response"
           echo "----------------------------"
         done
