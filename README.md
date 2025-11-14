@@ -2,7 +2,7 @@
 This is a collection of agentic AI projects. Every project has its own project folder with its project specific configurations and environment variable settings. However, they all share the same common python virtual environment.
 
 ## Folder Structure
-
+```
 agenticaiproject/
 ├── README.md
 ├── requirements.txt
@@ -21,7 +21,7 @@ agenticaiproject/
 │   ├── stock-advisor/
 │   ├── trip-planner/
 
-
+```
 ## Hugging Face URLs
 
 - accessibility: In Progress
