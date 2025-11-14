@@ -1,7 +1,8 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 ENV PYTHONUNBUFFERED=1 \
-    DEBIAN_FRONTEND=noninteractive
+    DEBIAN_FRONTEND=noninteractive \
+    PYTHONPATH=/app:$PYTHONPATH
 
 WORKDIR /app
 
@@ -18,8 +19,9 @@ ENV PATH="/root/.local/bin:$PATH"
 COPY pyproject.toml .
 COPY uv.lock .
 
-# Install dependencies using uv
-RUN uv sync --frozen --no-dev --system
+# Install dependencies using uv, then export and install with pip to system
+RUN uv sync --frozen --no-dev && \
+    uv pip install -e . --system
 
 # Copy your source code
 COPY . .

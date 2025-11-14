@@ -22,6 +22,7 @@ To achieve this, the project integrates the following technologies and AI featur
 - **SendGrid** (for emailing report)
 - **LLMs** - (OpenAI, Geminia, Groq)
 
+**URL:** https://huggingface.co/spaces/mishrabp/deep-research
 
 ## How it works?
 The system is a multi-agent solution, where each agent has a specific responsibility:
@@ -41,7 +42,7 @@ The system is a multi-agent solution, where each agent has a specific responsibi
     - Reads results from all search agents.
     - Generates a well-formatted, consolidated report.
 
-5. **Email Agent**
+5. **Email Agent (not functional at present)**
     - Responsible for sending the report via email using SendGrid.
 
 6. **Orchestrator**
