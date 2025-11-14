@@ -1,0 +1,32 @@
+name: Keep My HF Sites Live
+
+# Run every 5 minutes
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # optional manual trigger
+
+jobs:
+  curl_urls:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Curl URLs
+      run: |
+        # Define URLs to curl
+        URLS=(
+          "https://huggingface.co/spaces/mishrabp/chatbot-app"
+          "https://huggingface.co/spaces/mishrabp/deep-research"
+          "https://huggingface.co/spaces/mishrabp/trip-advisor-app"
+        )
+
+        # Loop through URLs and print output
+        for url in "${URLS[@]}"; do
+          echo "Fetching $url ..."
+          response=$(curl -s -w "\nHTTP_STATUS:%{http_code}" "$url")
+          echo "$response"
+          echo "----------------------------"
+        done
