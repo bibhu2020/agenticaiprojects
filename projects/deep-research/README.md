@@ -1,9 +1,9 @@
 ---
-title: Deep Research App        # Give your app a title
+title: AI Deep Researcher        # Give your app a title
 emoji: 🤖                       # Pick an emoji
 colorFrom: indigo               # Theme start color
 colorTo: blue                   # Theme end color
-sdk: gradio                     # SDK type
+sdk: docker                     # SDK type
 sdk_version: "4.39.0"           # Example Gradio version
 app_file: ui/app.py             # <-- points to your app.py inside ui/
 pinned: false

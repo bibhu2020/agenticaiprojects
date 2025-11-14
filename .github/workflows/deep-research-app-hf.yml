@@ -55,7 +55,7 @@ jobs:
                     repo_id=REPO_ID,
                     token=TOKEN,
                     repo_type="space",
-                    space_sdk="gradio",
+                    space_sdk="docker",
                     private=False
                 )
                 print(f"Created new repository: {REPO_ID}")
