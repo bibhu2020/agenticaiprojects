@@ -42,23 +42,10 @@ if "button_disabled" not in st.session_state:
 # --------------------
 LIGHT_CSS = """
 <style>
-.block-container { max-width: 90% !important; margin-left:5% !important; margin-right:5% !important; padding-top:1.5rem; padding-bottom:2rem; }
-h1 { font-size:2.2rem !important; text-align:center; color: #0b1220 !important; }
-h2 { color: #0b1220 !important; }
-h3 { color: #0b1220 !important; }
-.report-box { background:#ffffff; padding:24px; border-radius:12px; border:1px solid #e9ecef; box-shadow:0 6px 18px rgba(23,43,77,0.04); font-size:1.05rem; line-height:1.65; white-space:pre-wrap; word-wrap:break-word; overflow-wrap:break-word; }
-textarea, .stTextArea>div>div>textarea { font-size:1.05rem !important; }
-.button-row { display:flex; justify-content:flex-start; gap:12px; margin-top:15px; margin-bottom:15px; flex-wrap: wrap; align-items: center; }
-.button-row [data-testid="column"] { flex: 0 !important; }
-.stButton { width: 100% !important; }
-.stButton>button { padding: 0 !important; width: 180px !important; height: 48px !important; border-radius: 6px !important; border: 1px solid #d0d0d0 !important; font-weight: 500 !important; font-size: 0.9rem !important; white-space: normal !important; background-color: #f8f9fa !important; color: #0b1220 !important; transition: all 0.2s !important; display: flex !important; align-items: center !important; justify-content: center !important; line-height: 1.2 !important; }
-.stButton>button:hover { background-color: #e9ecef !important; border-color: #999 !important; }
-.stButton>button:active { background-color: #dee2e6 !important; }
-.sidebar-title { font-weight:700; margin-bottom:8px; }
-.history-item { padding:6px 8px; border-radius:8px; margin-bottom:6px; background: #fafafa; border:1px solid #eee; }
-.small-muted { color:#6c757d; font-size:0.9rem; }
-/* Remove truncation constraints on markdown output */
-[data-testid="stMarkdown"] { max-height: none !important; height: auto !important; }
+.block-container { max-width: 90% !important; margin-left:5% !important; margin-right:5% !important; padding-top:1.5rem; padding-bottom:2rem; background-color: #121212; }
+h1, h2, h3 { font-size:2.2rem !important; text-align:center; color: #F8F9FA !important; }
+textarea, .stTextArea>div>div>textarea { background-color: #333 !important; color: #EEE !important; font-size:1.05rem !important; }
+.stButton>button { background-color: #495057 !important; color: #F8F9FA !important; }
 </style>
 """
 
