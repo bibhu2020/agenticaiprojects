@@ -10,6 +10,7 @@ agenticaiproject/
 ├── .env
 ├── .gitignore
 │
+├── _notebooks/ --> contains ipynb files mostly on prompt engineering.
 ├── github/
 │   ├── workflows/ --> it has the ci/cd pipelines that deploy the application into Hugging Face.
 ├── accessibility/

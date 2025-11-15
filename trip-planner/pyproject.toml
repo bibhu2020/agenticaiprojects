@@ -1,7 +1,0 @@
-[project]
-name = "ai-trip-planner"
-version = "0.1.0"
-description = "A learning project that uses AI for Trip Planning."
-readme = "README.md"
-requires-python = ">=3.11"
-dependencies = []
