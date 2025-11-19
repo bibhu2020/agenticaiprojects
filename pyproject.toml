@@ -7,31 +7,40 @@ requires-python = "==3.12.*"
 
 dependencies = [
     # LLM Providers / SDKs
-    "openai>=2.6.1",
-    "openai-agents>=0.4.2",
+    "openai>=2.8.1",
+    "openai-agents>=0.5.1",
     "anthropic>=0.49.0",
-    "langchain-openai>=0.3.9",
-    "langchain-anthropic>=0.3.10",
-    "langchain_huggingface",
-    "langchain_ollama",
+    "langchain-openai>=1.0.3",
+    "langchain-anthropic>=1.1.0",
+    "langchain_huggingface>=1.0.1",
+    "langchain_ollama>=1.0.0",
+    "langchain_google_genai>=3.0.3",
+    "langchain_groq>=1.0.1",
 
     # LangChain / LangGraph Ecosystem
-    "langchain>=0.3.0",
-    "langchain-community>=0.3.20",
-    "langchain-core>=0.3.0",
-    "langchain-experimental>=0.3.4",
-    "langgraph>=0.3.18",
-    "langgraph-checkpoint-sqlite>=2.0.6",
-    "langsmith>=0.3.18",
-    "langchain_groq",
+    "langchain>=1.0.7",
+    "langchain-community>=0.4.1",
+    #"langchain-core>=0.3.0",
+    #"langchain-experimental>=0.3.4",
+    "langgraph>=1.0.3",
+    "langgraph-checkpoint-sqlite>=3.0.0",
+    "langsmith>=0.4.43",
+
+    # Document loaders and vector db
+    "faiss-cpu>=1.13.0", #faiss-cpu is the db, FAISS is the langchain wrapper class.
+    "chromadb==1.3.5",
+    "pymupdf",
+    "sentence-transformers>=5.1.2",
+    "arxiv>=2.3.1",
+    "wikipedia>=1.4.0",
 
     # AutoGen
-    "autogen-agentchat>=0.4.9.2",
-    "autogen-ext[grpc,mcp,ollama,openai]>=0.4.9.2",
+    "autogen-agentchat>=0.7.5",
+    "autogen-ext[grpc,mcp,ollama,openai]>=0.7.5",
 
     # MCP (Model Context Protocol)
     "mcp-server-fetch>=2025.1.17",
-    "mcp[cli]>=1.9.3",
+    "mcp[cli]>=1.21.2",
 
     # Tools & Utilities
     "psutil>=7.0.0",
@@ -45,39 +54,39 @@ dependencies = [
     "beautifulsoup4>=4.12.3",
     "lxml>=5.3.1",
     "wikipedia>=1.4.0",
-    "yfinance>=0.2.27",
+    "yfinance>=0.2.66",
     "textblob>=0.17.1",
 
     # Visualization / UI
-    "plotly>=6.0.1",
+    "plotly>=6.5.0",
     "streamlit>=1.51.0",
-    "reportlab",
+    "reportlab>=4.4.5",
 
     # PDF & Document Tools
-    "pypdf>=5.4.0",
+    "pypdf>=6.3.0",
     "pypdf2>=3.0.1",
 
     # Youtube Video
-    "yt_dlp",
-    "openai-whisper",
+    "yt_dlp>=2025.11.12",
+    "openai-whisper>=1.0.0",
 
     # Misc
-    "polygon-api-client>=1.14.5",
-    "sendgrid>=6.11.0",
-    "semantic-kernel>=1.25.0",
+    "polygon-api-client>=1.16.3",
+    "sendgrid>=6.12.5",
+    #"semantic-kernel>=1.38.0",
     "speedtest-cli>=2.1.3",
-    "smithery>=0.1.0",
+    "smithery>=0.4.4",
 
     # Machine Learning
-    "scikit-learn",
+    "scikit-learn>=1.7.2",
     "huggingface_hub<=1.1.4",
 ]
 
 [dependency-groups]
 dev = [
-    "ipykernel>=6.29.5",
+    "ipykernel>=7.1.0",
 ]
 
 [build-system]
-requires = ["setuptools>=78.1.0"]
+requires = ["setuptools>=80.9.0"]
 build-backend = "setuptools.build_meta"

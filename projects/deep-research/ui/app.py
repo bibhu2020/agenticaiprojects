@@ -38,18 +38,172 @@ if "button_disabled" not in st.session_state:
 # (dark mode removed - UI uses single light theme)
 
 # --------------------
-# CSS for light/dark and layout
+# CSS for theme-agnostic layout
 # --------------------
-LIGHT_CSS = """
+THEME_AGNOSTIC_CSS = """
 <style>
-.block-container { max-width: 90% !important; margin-left:5% !important; margin-right:5% !important; padding-top:1.5rem; padding-bottom:2rem; background-color: #121212; }
-h1, h2, h3 { font-size:2.2rem !important; text-align:center; color: #F8F9FA !important; }
-textarea, .stTextArea>div>div>textarea { background-color: #333 !important; color: #EEE !important; font-size:1.05rem !important; }
-.stButton>button { background-color: #495057 !important; color: #F8F9FA !important; }
+:root {
+  color-scheme: light dark;
+}
+
+.block-container { 
+  max-width: 90% !important; 
+  margin-left: 5% !important; 
+  margin-right: 5% !important; 
+  padding-top: 1.5rem !important; 
+  padding-bottom: 2rem !important; 
+}
+
+/* Use system foreground/background colors */
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-size: 2.2rem !important; 
+  text-align: left !important; 
+  color: inherit !important;
+  font-weight: 600 !important;
+}
+
+/* Text areas - inherit system colors */
+textarea, .stTextArea > div > div > textarea { 
+  background-color: inherit !important; 
+  color: inherit !important; 
+  font-size: 1.05rem !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Buttons - proper button styling */
+.stButton > button, .stDownloadButton > button {
+  border: 2px solid currentColor !important;
+  border-radius: 6px !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  background-color: transparent !important;
+  color: inherit !important;
+  min-width: 150px !important;
+  min-height: 44px !important;
+}
+
+.stButton > button:hover, .stDownloadButton > button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.stButton > button:active, .stDownloadButton > button:active {
+  transform: translateY(0) !important;
+}
+
+/* Download buttons */
+.stDownloadButton > button {
+  width: 180px !important;
+  height: 48px !important;
+}
+
+/* Text and paragraphs */
+p, span, div {
+  color: inherit !important;
+}
+
+/* Code blocks */
+code {
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Info, success, error, warning boxes */
+.stAlert {
+  border-radius: 6px !important;
+}
+
+/* Markdown content */
+.stMarkdown {
+  color: inherit !important;
+}
+
+/* List items */
+ul, ol, li {
+  color: inherit !important;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure sufficient contrast for readability */
+.stApp {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Progress bar visibility */
+.stProgress > div > div > div {
+  background-color: currentColor !important;
+  opacity: 0.5 !important;
+}
+
+/* Remove text truncation */
+.stMarkdown {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Responsive buttons layout */
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.6rem !important;
+  }
+  
+  .stButton > button {
+    width: 100% !important;
+    height: auto !important;
+    padding: 10px !important;
+  }
+  
+  .stDownloadButton > button {
+    width: 100% !important;
+    height: auto !important;
+    padding: 10px !important;
+  }
+}
+
+/* Tablet devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .block-container {
+    max-width: 85% !important;
+  }
+  
+  h1, h2, h3 {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Desktop devices */
+@media (min-width: 1025px) {
+  .block-container {
+    max-width: 90% !important;
+  }
+  
+  h1, h2, h3 {
+    font-size: 2.2rem !important;
+  }
+}
 </style>
 """
 
-st.markdown(LIGHT_CSS, unsafe_allow_html=True)
+st.markdown(THEME_AGNOSTIC_CSS, unsafe_allow_html=True)
+
+st.markdown(THEME_AGNOSTIC_CSS, unsafe_allow_html=True)
 
 # --------------------
 # Helpers: orchestrator streaming
@@ -232,7 +386,7 @@ def run_streaming(query: str, final_ph, status_ph):
 st.title("🧠 Deep Research (Powered by Agentic AI)")
 st.write("What topic would you like to research?")
 
-query = st.text_area("Enter your research topic", value="The impact of AI on the Healthcare Industry.", height=50, label_visibility="collapsed")
+query = st.text_area("Enter your research topic", value="Most popular free MLOps & LLMOps tools in 2025.", height=50, label_visibility="collapsed")
 
 # Action row with buttons
 col1, col2, col3, col4 = st.columns([2.0, 2.0, 2.0, 2.0])
