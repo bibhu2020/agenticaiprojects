@@ -20,6 +20,7 @@ jobs:
         URLS=(
           "https://mishrabp-chatbot-app.hf.space"
           "https://mishrabp-deep-research.hf.space"
+          "https://mishrabp-travel-agent.hf.space"
           "https://mishrabp-trip-advisor-api.hf.space/"
           "https://mishrabp-trip-advisor-app.hf.space/"
           "https://mishrabp-northwind.hf.space"

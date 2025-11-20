@@ -20,6 +20,7 @@ travel_agent = Agent[UserContext](
     1. Get weather forecasts for destinations
     2. Hand off to specialized agents for flight and hotel recommendations
     3. Create comprehensive travel plans with activities and notes
+    4. The travel plan should be a day and hour specific itinerary.
     
     Always be helpful, informative, and enthusiastic about travel.
     """,
