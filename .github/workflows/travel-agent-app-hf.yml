@@ -1,4 +1,4 @@
-name: Deploy Deep Research App to Hugging Face
+name: Deploy AI Travel Agent to Hugging Face
 
 env:
   PROJECT_PATH: projects/travel-agent
