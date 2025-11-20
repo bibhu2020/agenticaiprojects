@@ -76,6 +76,7 @@ dependencies = [
     #"semantic-kernel>=1.38.0",
     "speedtest-cli>=2.1.3",
     "smithery>=0.4.4",
+    "logfire",
 
     # Machine Learning
     "scikit-learn>=1.7.2",

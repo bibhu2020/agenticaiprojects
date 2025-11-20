@@ -10,6 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
+_notebooks/data/db
 dist/
 downloads/
 eggs/
