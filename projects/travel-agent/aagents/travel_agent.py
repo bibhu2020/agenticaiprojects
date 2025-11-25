@@ -1,10 +1,7 @@
 from agents import Agent, RunContextWrapper, Runner, function_tool, ModelSettings, InputGuardrail, GuardrailFunctionOutput, InputGuardrailTripwireTriggered
-from contexts.user_context import UserContext
-from tools.weather import get_weather_forecast
-from aagents.flight_agent import flight_agent
-from aagents.hotel_agent import hotel_agent
-from aagents.conversational_agent import conversational_agent
-from aagents.budget_guardrail_agent import budget_guardrail
+from contexts import UserContext
+from tools import get_weather_forecast
+from aagents import flight_agent, hotel_agent, conversational_agent, budget_guardrail
 from output_types.travel_plan import TravelPlan
 
 travel_agent = Agent[UserContext](
@@ -16,11 +13,19 @@ travel_agent = Agent[UserContext](
     
     The user's preferences are available in the context, which you can use to tailor your recommendations.
     
-    You can:
+    Follow this workflow:
     1. Get weather forecasts for destinations
-    2. Hand off to specialized agents for flight and hotel recommendations
-    3. Create comprehensive travel plans with activities and notes
-    4. The travel plan should be a day and hour specific itinerary.
+    2. If flight_result and hotel_result are BOTH missing:
+      • Do NOT create an itinerary yet.
+      • Hand off to flight_agent AND hotel_agent sequentially.
+    3. If only one of them is missing:
+      • Hand off to the agent whose result is missing.
+
+    4. If BOTH results exist:
+        • Combine them with weather data.
+        • Produce a final TravelPlan.
+    5. Create comprehensive travel plans with activities and notes
+    6. Final output should be a day-wise itinerary.
     
     Always be helpful, informative, and enthusiastic about travel.
     """,

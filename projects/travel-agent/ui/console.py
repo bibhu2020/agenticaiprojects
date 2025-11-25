@@ -1,7 +1,7 @@
 from agents import Runner, InputGuardrailTripwireTriggered
 import asyncio
-from contexts.user_context import UserContext
-from aagents.travel_agent import travel_agent
+from contexts import UserContext
+from aagents import travel_agent
 from dotenv import load_dotenv
 
 # Load environment variables

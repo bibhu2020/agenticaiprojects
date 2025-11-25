@@ -5,11 +5,11 @@ import json
 from datetime import datetime
 from typing import List, Dict, Any
 import os
-from aagents.travel_agent import travel_agent
-from contexts.user_context import UserContext
-from output_types.travel_plan import TravelPlan
-from output_types.flight_recommendation import FlightRecommendation
-from output_types.hotel_recommendation import HotelRecommendation
+from aagents import travel_agent
+from contexts import UserContext
+from output_types import TravelPlan
+from output_types import FlightRecommendation
+from output_types import HotelRecommendation
 from agents import Runner
 from dotenv import load_dotenv
 import logfire
@@ -248,10 +248,25 @@ if st.session_state.processing_message:
                 # First message
                 input_list = user_input
             
-            # Run the agent with the input
+            # Show debug info about the context being passed (type and content)
+            try:
+                ctx_preview = {
+                    "type": type(st.session_state.user_context).__name__,
+                    "user_id": getattr(st.session_state.user_context, "user_id", None),
+                    "preferred_airlines": getattr(st.session_state.user_context, "preferred_airlines", None),
+                    "hotel_amenities": getattr(st.session_state.user_context, "hotel_amenities", None),
+                    "budget_level": getattr(st.session_state.user_context, "budget_level", "$1000"),
+                }
+            except Exception:
+                ctx_preview = str(st.session_state.user_context)
+
+            # Lightweight debug output (visible in the app) so you can confirm the context
+            st.write("Passing user context to agent:", ctx_preview)
+
+            # Run the agent with the input and the user context
             result = asyncio.run(Runner.run(
-                travel_agent, 
-                input_list, 
+                travel_agent,
+                input_list,
                 context=st.session_state.user_context
             ))
             

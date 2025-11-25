@@ -6,7 +6,10 @@ readme = "README.md"
 requires-python = "==3.12.*"
 
 dependencies = [
-    # LLM Providers / SDKs
+
+    # =======================
+    # LLM PROVIDERS / SDKs
+    # =======================
     "openai>=2.8.1",
     "openai-agents>=0.5.1",
     "anthropic>=0.49.0",
@@ -17,68 +20,82 @@ dependencies = [
     "langchain_google_genai>=3.0.3",
     "langchain_groq>=1.0.1",
 
-    # LangChain / LangGraph Ecosystem
+    # =======================
+    # LANGCHAIN / LANGGRAPH / ECOSYSTEM
+    # =======================
     "langchain>=1.0.7",
     "langchain-community>=0.4.1",
-    #"langchain-core>=0.3.0",
-    #"langchain-experimental>=0.3.4",
     "langgraph>=1.0.3",
     "langgraph-checkpoint-sqlite>=3.0.0",
     "langsmith>=0.4.43",
+    "langchain-text-splitters>=1.0.0",
+    "langchain-chroma>=1.0.0",
+    "html2text>=2025.4.15",
 
-    # Document loaders and vector db
-    "faiss-cpu>=1.13.0", #faiss-cpu is the db, FAISS is the langchain wrapper class.
+    # =======================
+    # VECTOR DB / INDEXING / LOADERS
+    # =======================
+    "faiss-cpu>=1.13.0",          # FAISS backend
     "chromadb==1.3.5",
-    "pymupdf",
     "sentence-transformers>=5.1.2",
+    "pymupdf",
+    "pypdf>=6.3.0",
+    "pypdf2>=3.0.1",
     "arxiv>=2.3.1",
     "wikipedia>=1.4.0",
 
-    # AutoGen
+    # =======================
+    # AUTOGEN
+    # =======================
     "autogen-agentchat>=0.7.5",
     "autogen-ext[grpc,mcp,ollama,openai]>=0.7.5",
 
-    # MCP (Model Context Protocol)
+    # =======================
+    # MODEL CONTEXT PROTOCOL (MCP)
+    # =======================
     "mcp-server-fetch>=2025.1.17",
     "mcp[cli]>=1.21.2",
 
-    # Tools & Utilities
+    # =======================
+    # NETWORKING / UTILITIES / TOOLING
+    # =======================
     "psutil>=7.0.0",
     "python-dotenv>=1.0.1",
     "requests>=2.32.3",
     "aiohttp>=3.8.5",
     "httpx>=0.28.1",
+    "speedtest-cli>=2.1.3",
+    "logfire",
+    "pytest",   # Consider moving to dev group?
+    "serpapi",
+    "smithery>=0.4.4",
 
-    # Web Automation / Scraping
+    # =======================
+    # WEB AUTOMATION / SCRAPING / FINANCE DATA
+    # =======================
     "playwright>=1.51.0",
     "beautifulsoup4>=4.12.3",
     "lxml>=5.3.1",
-    "wikipedia>=1.4.0",
     "yfinance>=0.2.66",
     "textblob>=0.17.1",
+    "polygon-api-client>=1.16.3",
 
-    # Visualization / UI
+    # =======================
+    # VISUALIZATION / UI / PDF OUTPUT
+    # =======================
     "plotly>=6.5.0",
     "streamlit>=1.51.0",
     "reportlab>=4.4.5",
 
-    # PDF & Document Tools
-    "pypdf>=6.3.0",
-    "pypdf2>=3.0.1",
-
-    # Youtube Video
+    # =======================
+    # VIDEO / AUDIO PROCESSING
+    # =======================
     "yt_dlp>=2025.11.12",
     "openai-whisper>=1.0.0",
 
-    # Misc
-    "polygon-api-client>=1.16.3",
-    "sendgrid>=6.12.5",
-    #"semantic-kernel>=1.38.0",
-    "speedtest-cli>=2.1.3",
-    "smithery>=0.4.4",
-    "logfire",
-
-    # Machine Learning
+    # =======================
+    # MACHINE LEARNING
+    # =======================
     "scikit-learn>=1.7.2",
     "huggingface_hub<=1.1.4",
 ]

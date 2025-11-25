@@ -1,5 +1,5 @@
 from agents import function_tool, RunContextWrapper
-from contexts.user_context import UserContext
+from contexts import UserContext
 import json
 
 @function_tool
@@ -42,4 +42,23 @@ async def search_flights(wrapper: RunContextWrapper[UserContext], origin: str, d
                 if flight["airline"] in preferred_airlines:
                     flight["preferred"] = True                      
     
+    # Persist a lightweight summary into the shared context so other agents/orchestrator can use it
+    try:
+        if wrapper and wrapper.context and flight_options:
+            top = flight_options[0]
+            # store a serializable snapshot
+            wrapper.context.latest_flight_recommendation = {
+                "airline": top.get("airline"),
+                "departure_time": top.get("departure_time"),
+                "arrival_time": top.get("arrival_time"),
+                "price": top.get("price"),
+                "direct": top.get("direct", False),
+                "preferred": top.get("preferred", False),
+            }
+            # also keep the raw options list
+            wrapper.context.flight_options = flight_options
+    except Exception:
+        # Do not fail the tool if context persistence fails
+        pass
+
     return json.dumps(flight_options)

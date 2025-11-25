@@ -1,5 +1,5 @@
 from agents import function_tool, RunContextWrapper
-from contexts.user_context import UserContext
+from contexts import UserContext
 from typing import List, Optional
 import json
 
@@ -58,4 +58,19 @@ async def search_hotels(wrapper: RunContextWrapper[UserContext], city: str, chec
                 filtered_hotels.sort(key=lambda x: x["price_per_night"], reverse=True)
             # mid-range is already handled by the max_price filter
         
+    # Persist a lightweight summary into the shared context so other agents/orchestrator can use it
+    try:
+        if wrapper and wrapper.context and filtered_hotels:
+            top = filtered_hotels[0]
+            wrapper.context.latest_hotel_recommendation = {
+                "name": top.get("name"),
+                "location": top.get("location"),
+                "price_per_night": top.get("price_per_night"),
+                "amenities": top.get("amenities", []),
+            }
+            wrapper.context.hotel_options = filtered_hotels
+    except Exception:
+        # Don't let context persistence break the tool
+        pass
+
     return json.dumps(filtered_hotels)

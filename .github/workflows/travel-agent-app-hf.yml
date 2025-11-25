@@ -8,11 +8,11 @@ env:
   REPO_ID: ${{ secrets.HF_USERNAME }}/travel-agent
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'projects/travel-agent/**'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'projects/travel-agent/**'
   workflow_dispatch:
 
 jobs:

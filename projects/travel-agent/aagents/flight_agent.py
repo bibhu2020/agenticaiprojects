@@ -1,7 +1,7 @@
 from agents import Agent, RunContextWrapper, Runner, function_tool, ModelSettings, InputGuardrail, GuardrailFunctionOutput, InputGuardrailTripwireTriggered
-from contexts.user_context import UserContext
-from tools.flight import search_flights
-from output_types.flight_recommendation import FlightRecommendation
+from contexts import UserContext
+from tools import search_flights
+from output_types import FlightRecommendation
 
 flight_agent = Agent[UserContext](
     name="Flight Specialist",

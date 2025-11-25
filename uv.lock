@@ -15,16 +15,19 @@ dependencies = [
     { name = "beautifulsoup4" },
     { name = "chromadb" },
     { name = "faiss-cpu" },
+    { name = "html2text" },
     { name = "httpx" },
     { name = "huggingface-hub" },
     { name = "langchain" },
     { name = "langchain-anthropic" },
+    { name = "langchain-chroma" },
     { name = "langchain-community" },
     { name = "langchain-google-genai" },
     { name = "langchain-groq" },
     { name = "langchain-huggingface" },
     { name = "langchain-ollama" },
     { name = "langchain-openai" },
+    { name = "langchain-text-splitters" },
     { name = "langgraph" },
     { name = "langgraph-checkpoint-sqlite" },
     { name = "langsmith" },
@@ -42,12 +45,13 @@ dependencies = [
     { name = "pymupdf" },
     { name = "pypdf" },
     { name = "pypdf2" },
+    { name = "pytest" },
     { name = "python-dotenv" },
     { name = "reportlab" },
     { name = "requests" },
     { name = "scikit-learn" },
-    { name = "sendgrid" },
     { name = "sentence-transformers" },
+    { name = "serpapi" },
     { name = "smithery" },
     { name = "speedtest-cli" },
     { name = "streamlit" },
@@ -72,16 +76,19 @@ requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.12.3" },
     { name = "chromadb", specifier = "==1.3.5" },
     { name = "faiss-cpu", specifier = ">=1.13.0" },
+    { name = "html2text", specifier = ">=2025.4.15" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "huggingface-hub", specifier = "<=1.1.4" },
     { name = "langchain", specifier = ">=1.0.7" },
     { name = "langchain-anthropic", specifier = ">=1.1.0" },
+    { name = "langchain-chroma", specifier = ">=1.0.0" },
     { name = "langchain-community", specifier = ">=0.4.1" },
     { name = "langchain-google-genai", specifier = ">=3.0.3" },
     { name = "langchain-groq", specifier = ">=1.0.1" },
     { name = "langchain-huggingface", specifier = ">=1.0.1" },
     { name = "langchain-ollama", specifier = ">=1.0.0" },
     { name = "langchain-openai", specifier = ">=1.0.3" },
+    { name = "langchain-text-splitters", specifier = ">=1.0.0" },
     { name = "langgraph", specifier = ">=1.0.3" },
     { name = "langgraph-checkpoint-sqlite", specifier = ">=3.0.0" },
     { name = "langsmith", specifier = ">=0.4.43" },
@@ -99,12 +106,13 @@ requires-dist = [
     { name = "pymupdf" },
     { name = "pypdf", specifier = ">=6.3.0" },
     { name = "pypdf2", specifier = ">=3.0.1" },
+    { name = "pytest" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "reportlab", specifier = ">=4.4.5" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
-    { name = "sendgrid", specifier = ">=6.12.5" },
     { name = "sentence-transformers", specifier = ">=5.1.2" },
+    { name = "serpapi" },
     { name = "smithery", specifier = ">=0.4.4" },
     { name = "speedtest-cli", specifier = ">=2.1.3" },
     { name = "streamlit", specifier = ">=1.51.0" },
@@ -1018,6 +1026,15 @@ wheels = [
 ]
 
 [[package]]
+name = "html2text"
+version = "2025.4.15"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f8/27/e158d86ba1e82967cc2f790b0cb02030d4a8bef58e0c79a8590e9678107f/html2text-2025.4.15.tar.gz", hash = "sha256:948a645f8f0bc3abe7fd587019a2197a12436cd73d0d4908af95bfc8da337588", size = 64316, upload-time = "2025-04-15T04:02:30.045Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1d/84/1a0f9555fd5f2b1c924ff932d99b40a0f8a6b12f6dd625e2a47f415b00ea/html2text-2025.4.15-py3-none-any.whl", hash = "sha256:00569167ffdab3d7767a4cdf589b7f57e777a5ed28d12907d8c58769ec734acc", size = 34656, upload-time = "2025-04-15T04:02:28.44Z" },
+]
+
+[[package]]
 name = "html5lib"
 version = "1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1141,6 +1158,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/cf/8c/f834fbf984f691b4f7ff60f50b514cc3de5cc08abfc3295564dd89c5e2e7/importlib_resources-6.5.2.tar.gz", hash = "sha256:185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c", size = 44693, upload-time = "2025-01-03T18:51:56.698Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a4/ed/1f1afb2e9e7f38a545d628f864d562a5ae64fe6f7a10e28ffb9b185b4e89/importlib_resources-6.5.2-py3-none-any.whl", hash = "sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec", size = 37461, upload-time = "2025-01-03T18:51:54.306Z" },
+]
+
+[[package]]
+name = "iniconfig"
+version = "2.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/72/34/14ca021ce8e5dfedc35312d08ba8bf51fdd999c576889fc2c24cb97f4f10/iniconfig-2.3.0.tar.gz", hash = "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730", size = 20503, upload-time = "2025-10-18T21:55:43.219Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl", hash = "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12", size = 7484, upload-time = "2025-10-18T21:55:41.639Z" },
 ]
 
 [[package]]
@@ -1391,6 +1417,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d2/d3/8ac7d664e87aa9bdf5f6a4d55324316933aec8beb1690932dbe7b63416e2/langchain_anthropic-1.1.0.tar.gz", hash = "sha256:427e102b76a417fb5713e81e853225e7459d71fc7abdf4d86722f0e01ad43845", size = 684087, upload-time = "2025-11-17T21:31:31.146Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/aa/95/f340acdd8d9f392606f026a1326a33cfb1f9b172c7607c70ab0c2b43d74d/langchain_anthropic-1.1.0-py3-none-any.whl", hash = "sha256:2593f10b984448e31a9fd486ab2f7ebc8a0f7f82ba1ca477339e4f5ddd7f0e8d", size = 47793, upload-time = "2025-11-17T21:31:29.979Z" },
+]
+
+[[package]]
+name = "langchain-chroma"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "chromadb" },
+    { name = "langchain-core" },
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6c/b5/1dfb361793b217c7e8e791edebf5ecbbcc7fed2e9fd998b452c32c701c1f/langchain_chroma-1.0.0.tar.gz", hash = "sha256:ee82c6fbd0c94e5e9942e3b9302f69deea6c58c0e957ff16de6066d896d7a34a", size = 217313, upload-time = "2025-10-17T15:18:54.557Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/05/fd/36d8d37a257d7f5961cea9ef0e1a9616a4b4fc259cad2cbf02416de90215/langchain_chroma-1.0.0-py3-none-any.whl", hash = "sha256:b7adb991090f066f8d5e746a2d338de3116b192cec3990deef3052b7ea07324c", size = 12458, upload-time = "2025-10-17T15:18:53.325Z" },
 ]
 
 [[package]]
@@ -2475,6 +2515,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pluggy"
+version = "1.6.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3", size = 69412, upload-time = "2025-05-15T12:30:07.975Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746", size = 20538, upload-time = "2025-05-15T12:30:06.134Z" },
+]
+
+[[package]]
 name = "polygon-api-client"
 version = "1.16.3"
 source = { registry = "https://pypi.org/simple" }
@@ -2842,6 +2891,22 @@ wheels = [
 ]
 
 [[package]]
+name = "pytest"
+version = "9.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "iniconfig" },
+    { name = "packaging" },
+    { name = "pluggy" },
+    { name = "pygments" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/07/56/f013048ac4bc4c1d9be45afd4ab209ea62822fb1598f40687e6bf45dcea4/pytest-9.0.1.tar.gz", hash = "sha256:3e9c069ea73583e255c3b21cf46b8d3c56f6e3a1a8f6da94ccb0fcf57b9d73c8", size = 1564125, upload-time = "2025-11-12T13:05:09.333Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0b/8b/6300fb80f858cda1c51ffa17075df5d846757081d11ab4aa35cef9e6258b/pytest-9.0.1-py3-none-any.whl", hash = "sha256:67be0030d194df2dfa7b556f2e56fb3c3315bd5c8822c6951162b92b32ce7dad", size = 373668, upload-time = "2025-11-12T13:05:07.379Z" },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -2860,15 +2925,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f0/26/19cadc79a718c5edbec86fd4919a6b6d3f681039a2f6d66d14be94e75fb9/python_dotenv-1.2.1.tar.gz", hash = "sha256:42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6", size = 44221, upload-time = "2025-10-26T15:12:10.434Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/14/1b/a298b06749107c305e1fe0f814c6c74aea7b2f1e10989cb30f544a1b3253/python_dotenv-1.2.1-py3-none-any.whl", hash = "sha256:b81ee9561e9ca4004139c6cbba3a238c32b03e4894671e181b671e8cb8425d61", size = 21230, upload-time = "2025-10-26T15:12:09.109Z" },
-]
-
-[[package]]
-name = "python-http-client"
-version = "3.3.7"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/56/fa/284e52a8c6dcbe25671f02d217bf2f85660db940088faf18ae7a05e97313/python_http_client-3.3.7.tar.gz", hash = "sha256:bf841ee45262747e00dec7ee9971dfb8c7d83083f5713596488d67739170cea0", size = 9377, upload-time = "2022-03-09T20:23:56.386Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/29/31/9b360138f4e4035ee9dac4fe1132b6437bd05751aaf1db2a2d83dc45db5f/python_http_client-3.3.7-py3-none-any.whl", hash = "sha256:ad371d2bbedc6ea15c26179c6222a78bc9308d272435ddf1d5c84f068f249a36", size = 8352, upload-time = "2022-03-09T20:23:54.862Z" },
 ]
 
 [[package]]
@@ -3153,20 +3209,6 @@ wheels = [
 ]
 
 [[package]]
-name = "sendgrid"
-version = "6.12.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cryptography" },
-    { name = "python-http-client" },
-    { name = "werkzeug" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/da/fa/f718b2b953f99c1f0085811598ac7e31ccbd4229a81ec2a5290be868187a/sendgrid-6.12.5.tar.gz", hash = "sha256:ea9aae30cd55c332e266bccd11185159482edfc07c149b6cd15cf08869fabdb7", size = 50310, upload-time = "2025-09-19T06:23:09.229Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/bd/55/b3c3880a77082e8f7374954e0074aafafaa9bc78bdf9c8f5a92c2e7afc6a/sendgrid-6.12.5-py3-none-any.whl", hash = "sha256:96f92cc91634bf552fdb766b904bbb53968018da7ae41fdac4d1090dc0311ca8", size = 102173, upload-time = "2025-09-19T06:23:07.93Z" },
-]
-
-[[package]]
 name = "sentence-transformers"
 version = "5.1.2"
 source = { registry = "https://pypi.org/simple" }
@@ -3183,6 +3225,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/0f/96/f3f3409179d14dbfdbea8622e2e9eaa3c8836ddcaecd2cd5ff0a11731d20/sentence_transformers-5.1.2.tar.gz", hash = "sha256:0f6c8bd916a78dc65b366feb8d22fd885efdb37432e7630020d113233af2b856", size = 375185, upload-time = "2025-10-22T12:47:55.019Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/bb/a6/a607a737dc1a00b7afe267b9bfde101b8cee2529e197e57471d23137d4e5/sentence_transformers-5.1.2-py3-none-any.whl", hash = "sha256:724ce0ea62200f413f1a5059712aff66495bc4e815a1493f7f9bca242414c333", size = 488009, upload-time = "2025-10-22T12:47:53.433Z" },
+]
+
+[[package]]
+name = "serpapi"
+version = "0.1.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f0/fa/3fd8809287f3977a3e752bb88610e918d49cb1038b14f4bc51e13e594197/serpapi-0.1.5.tar.gz", hash = "sha256:b9707ed54750fdd2f62dc3a17c6a3fb7fa421dc37902fd65b2263c0ac765a1a5", size = 14191, upload-time = "2023-11-01T14:00:43.602Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/df/6a/21deade04100d64844e494353a5d65e7971fbdfddf78eb1f248423593ad0/serpapi-0.1.5-py2.py3-none-any.whl", hash = "sha256:6467b6adec1231059f754ccaa952b229efeaa8b9cae6e71f879703ec9e5bb3d1", size = 10966, upload-time = "2023-11-01T14:00:38.885Z" },
 ]
 
 [[package]]
@@ -3777,18 +3831,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ff/83/de1f7709376dc3ca9b7eeb4b9a07b4526b14876b6d372a4dc62312bebee0/websockets-15.0.1-cp312-cp312-win32.whl", hash = "sha256:c338ffa0520bdb12fbc527265235639fb76e7bc7faafbb93f6ba80d9c06578a9", size = 176395, upload-time = "2025-03-05T20:02:33.017Z" },
     { url = "https://files.pythonhosted.org/packages/7d/71/abf2ebc3bbfa40f391ce1428c7168fb20582d0ff57019b69ea20fa698043/websockets-15.0.1-cp312-cp312-win_amd64.whl", hash = "sha256:fcd5cf9e305d7b8338754470cf69cf81f420459dbae8a3b40cee57417f4614a7", size = 176841, upload-time = "2025-03-05T20:02:34.498Z" },
     { url = "https://files.pythonhosted.org/packages/fa/a8/5b41e0da817d64113292ab1f8247140aac61cbf6cfd085d6a0fa77f4984f/websockets-15.0.1-py3-none-any.whl", hash = "sha256:f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f", size = 169743, upload-time = "2025-03-05T20:03:39.41Z" },
-]
-
-[[package]]
-name = "werkzeug"
-version = "3.1.3"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "markupsafe" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/9f/69/83029f1f6300c5fb2471d621ab06f6ec6b3324685a2ce0f9777fd4a8b71e/werkzeug-3.1.3.tar.gz", hash = "sha256:60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746", size = 806925, upload-time = "2024-11-08T15:52:18.093Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/52/24/ab44c871b0f07f491e5d2ad12c9bd7358e527510618cb1b803a88e986db1/werkzeug-3.1.3-py3-none-any.whl", hash = "sha256:54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e", size = 224498, upload-time = "2024-11-08T15:52:16.132Z" },
 ]
 
 [[package]]
